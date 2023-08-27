@@ -1,0 +1,19 @@
+body {
+  font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
+}
+
+.weatherApp {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 40px;
+  border: 2px solid #dadde1;
+  border-radius: 20px;
+}
+
+h1 {
+  color: rgb(232, 234, 237);
+  font-size: 25px;
+  font-weight: 200;
+  line-height: 56px;
+  width: auto;
+}
