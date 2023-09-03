@@ -23,13 +23,13 @@ function formateDate(timestamp) {
 
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-temperature");
-  let cityElement = document.querySelector("#city-input");
+  let cityElement = document.querySelector("#city");
   let discriptionElement = document.querySelector("#weatherDescription");
   let humidityElement = document.querySelector("#Humidity");
   let WindElement = document.querySelector("#Wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#weatherIcon");
-
+  celsiusTemperature = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   discriptionElement.innerHTML = response.data.weather[0].description;
@@ -52,6 +52,30 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
+function showfahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+function showcelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temperature");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showfahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showcelsiusTemperature);
+
+search("Brussel");

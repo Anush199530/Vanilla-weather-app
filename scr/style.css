@@ -26,13 +26,13 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
-  
+
   color: rgb(93, 97, 103);
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
 }
-li::first-letter{
+li::first-letter {
   text-transform: capitalize;
 }
 .weatherApp-wrapper {
@@ -63,3 +63,12 @@ li::first-letter{
   font-size: 16px;
   top: -24px;
 }
+.weather-temperature .active {
+  color: #121212;
+  cursor: default;
+  text-decoration: none;
+}
+.weather-temperature .active :hover {
+  text-decoration: none;
+}
+
