@@ -23,7 +23,7 @@ function formateDate(timestamp) {
 
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-temperature");
-  let cityElement = document.querySelector("#city");
+  let cityElement = document.querySelector("#city-input");
   let discriptionElement = document.querySelector("#weatherDescription");
   let humidityElement = document.querySelector("#Humidity");
   let WindElement = document.querySelector("#Wind");
@@ -42,10 +42,16 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+function search(city) {
+  let apiKey = "537a0e0e7ac70ad389445679f87e0b6e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
 
-let apiKey = "537a0e0e7ac70ad389445679f87e0b6e";
-let city = "Brussel";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-console.log(apiUrl);
-
-axios.get(apiUrl).then(displayTemperature);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

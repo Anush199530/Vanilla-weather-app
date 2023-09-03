@@ -23,6 +23,24 @@
     <div class="container">
       <div class="weatherApp-wrapper">
         <div class="weatherApp">
+          <div class="row">
+          <div class="col-md-9">
+          <form id="search-form">
+            <input
+              type="Search"
+              placeholder="Type a city....."
+              class="form-control"
+              id = "city-input"
+              autocomplete="off"
+            />
+            </div>
+               <div class="col-3">
+                <input type="submit" 
+                value="search" 
+                class="btn btn-primary w-100"/>
+              </div>
+            </div>
+          </form>
           <div class="current-overvieuw">
             <h1 id="city"></h1>
             <ul>
@@ -33,12 +51,7 @@
           <div class="row">
             <div class="col-md-6">
               <div class="d-flex weather-temperature">
-                <img
-                  src=""
-                  alt=""
-                  class="icon"
-                  id="weatherIcon"
-                />
+                <img src="" alt="" class="icon" id="weatherIcon" />
                 <div class="temperatureOverview">
                   <strong id="current-temperature"></strong
                   ><span class="units">°C|<a href="#">°F</a></span>
@@ -59,7 +72,7 @@
             target="_blank"
             >Open-source code,</a
           >
-          by Matt
+          by Anush Arutunian
         </small>
       </div>
     </div>
