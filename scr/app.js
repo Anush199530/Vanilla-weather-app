@@ -22,23 +22,23 @@ function formateDate(timestamp) {
 }
 
 function formateDay(timestamp) {
-  let date = new Date(timestamp * 1000)
+  let date = new Date(timestamp * 1000);
   let day = date.getDay();
-   let days = [
-         "Monday",
-     "Tuesday",
-     "Wednesday",
-     "Thursday",
-     "Friday",
-     "Saturday",
-     "Sunday",
-   ]; 
+  let days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
   return days[day];
 }
 
 function displayForecast(response) {
   let forcast = response.data.daily;
-console.log(response.data);
+  console.log(response.data);
   let forecastElement = document.querySelector("#forcast");
   let forcastHTML = ` <div class="row"> `;
 
