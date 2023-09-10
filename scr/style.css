@@ -1,18 +1,18 @@
 body {
   font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
   background-image: url("../img/pexels-325185.webp");
-background-repeat: no-repeat;
-background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-attachment: fixed;
 }
 
 .weatherApp {
-  max-width: 1000px;
+  max-width: 700px;
   margin: 30px auto;
   padding: 40px;
   border: 2px solid #dadde1;
   border-radius: 10px;
-  background-color: white 50%;
+  background-color: color-mix(in srgb, white 40%, rgb(72, 136, 219) 20%);
 }
 
 h1 {
@@ -41,11 +41,11 @@ li::first-letter {
   text-transform: capitalize;
 }
 .weatherApp-wrapper {
-  max-width: 600px;
+  max-width: 800px;
   margin: 30px auto;
 }
 .weatherApp {
-  padding: 40px;
+  padding: 50px;
   border: 2px solid #dadde1;
   border-radius: 10px;
 }
@@ -59,7 +59,7 @@ li::first-letter {
 }
 .weather-temperature strong {
   color: #121212;
-  font-size: 48px;
+  font-size: 50px;
   line-height: 1;
   font-weight: 400;
 }
@@ -78,19 +78,17 @@ li::first-letter {
 }
 
 .weather-forcast {
-  margin: 20px;
+  margin: 10px;
   text-align: center;
-   color:black;
+  color: black;
 }
-.weather-forcast-date{
+.weather-forcast-date {
   font-size: 16px;
   opacity: 0.5;
- 
-
 }
-.weather-forcast-temperature{
+.weather-forcast-temperature {
   font-size: 13px;
 }
-.weather-forcast-temperatures-min{
+.weather-forcast-temperatures-min {
   opacity: 0.5;
 }
