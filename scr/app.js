@@ -21,18 +21,12 @@ function formateDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forcast");
 
   let forcastHTML = ` <div class="row"> `;
-  let days = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    ,
-  ];
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", ,];
   days.forEach(function (day) {
     forcastHTML =
       forcastHTML +
@@ -54,6 +48,13 @@ function displayForecast() {
 
   forcastHTML = forcastHTML + `</div>`;
   forecastElement.innerHTML = forcastHTML;
+}
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "0t30d9c2bfb348e86oa6585b9339d079";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response) {
@@ -77,6 +78,7 @@ function displayTemperature(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 function search(city) {
   let apiKey = "537a0e0e7ac70ad389445679f87e0b6e";
@@ -115,4 +117,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showcelsiusTemperature);
 
 search("Brussel");
-displayForecast();
