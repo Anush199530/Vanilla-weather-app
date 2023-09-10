@@ -21,29 +21,55 @@ function formateDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast(response) {
-  console.log(response.data.daily);
-  let forecastElement = document.querySelector("#forcast");
+function formateDay(timestamp) {
+  let date = new Date(timestamp * 1000)
+  let day = date.getDay();
+   let days = [
+         "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Friday",
+     "Saturday",
+     "Sunday",
+   ]; 
+  return days[day];
+}
 
+function displayForecast(response) {
+  let forcast = response.data.daily;
+console.log(response.data);
+  let forecastElement = document.querySelector("#forcast");
   let forcastHTML = ` <div class="row"> `;
-  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", ,];
-  days.forEach(function (day) {
-    forcastHTML =
-      forcastHTML +
-      `
+
+  forcast.forEach(function (forcastDay, index) {
+    if (index < 5) {
+      forcastHTML =
+        forcastHTML +
+        `
            <div class="col-2">
             <div class="weather-forcast-date">
-            ${day} 
-              
+            ${formateDay(forcastDay.time)} 
+      
             </div>
  
-              <img src="https://openweathermap.org/img/wn/02d@2x.png" alt="" width="60">
+              <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                forcastDay.condition.icon
+              }.png" alt= "" width="42">
+  
               <div class="weather-forcast-temperature">
-                  <span class="weather-forcast-temperatures-max">18°</span>/ 
-                  <span class="weather-forcast-temperatures-min">12°</span>
+                  <span class="weather-forcast-temperatures-max">${Math.round(
+                    forcastDay.temperature.maximum
+                  )}°</span>/ 
+                  <span class="weather-forcast-temperatures-min">${Math.round(
+                    forcastDay.temperature.minimum
+                  )}°</span>
                 </div>
                 </div>
+                
+
                 `;
+    }
   });
 
   forcastHTML = forcastHTML + `</div>`;
