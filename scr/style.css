@@ -72,3 +72,20 @@ li::first-letter {
   text-decoration: none;
 }
 
+.weather-forcast {
+  margin: 20px;
+  text-align: center;
+   color:black;
+}
+.weather-forcast-date{
+  font-size: 16px;
+  opacity: 0.5;
+ 
+
+}
+.weather-forcast-temperature{
+  font-size: 13px;
+}
+.weather-forcast-temperatures-min{
+  opacity: 0.5;
+}
