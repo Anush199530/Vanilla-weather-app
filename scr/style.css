@@ -1,13 +1,18 @@
 body {
   font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
+  background-image: url("../img/pexels-325185.webp");
+background-repeat: no-repeat;
+background-size: cover;
+  background-attachment: fixed;
 }
 
 .weatherApp {
-  max-width: 600px;
+  max-width: 1000px;
   margin: 30px auto;
   padding: 40px;
   border: 2px solid #dadde1;
   border-radius: 10px;
+  background-color: white 50%;
 }
 
 h1 {
