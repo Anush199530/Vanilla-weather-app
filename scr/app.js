@@ -21,6 +21,41 @@ function formateDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forcast");
+
+  let forcastHTML = ` <div class="row"> `;
+  let days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    ,
+  ];
+  days.forEach(function (day) {
+    forcastHTML =
+      forcastHTML +
+      `
+           <div class="col-2">
+            <div class="weather-forcast-date">
+            ${day} 
+              
+            </div>
+ 
+              <img src="https://openweathermap.org/img/wn/02d@2x.png" alt="" width="60">
+              <div class="weather-forcast-temperature">
+                  <span class="weather-forcast-temperatures-max">18°</span>/ 
+                  <span class="weather-forcast-temperatures-min">12°</span>
+                </div>
+                </div>
+                `;
+  });
+
+  forcastHTML = forcastHTML + `</div>`;
+  forecastElement.innerHTML = forcastHTML;
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-temperature");
   let cityElement = document.querySelector("#city");
@@ -29,6 +64,7 @@ function displayTemperature(response) {
   let WindElement = document.querySelector("#Wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#weatherIcon");
+
   celsiusTemperature = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
@@ -79,3 +115,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showcelsiusTemperature);
 
 search("Brussel");
+displayForecast();
